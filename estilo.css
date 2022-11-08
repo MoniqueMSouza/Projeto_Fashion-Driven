@@ -1,0 +1,158 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.pagina {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.cabecalho {
+    width: 100%;
+    height: 89px;
+    background-color: #404EED;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 80px;
+}
+
+.principal {
+    width: 100%;
+    height: 784px;
+    background-color: red;
+    display: flex;
+
+}
+
+.fazerPedido {
+    width: 50%;
+    height: 784px;
+    background-color: #E5E5E5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 38.3px;
+    box-sizing: border-box;
+
+}
+
+.textosFazerPedido {
+    Weight: 400;
+    Size: 18px;
+}
+
+.modelo,
+.gola,
+.tecido {
+    width: 382.5px;
+    margin-top: 8.5px;
+    margin-bottom: 31.2px;
+    height: 130px;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modelo1,
+.modelo2,
+.modelo3,
+.gola1,
+.gola2,
+.gola3,
+.tecido1,
+.tecido2,
+.tecido3 {
+    width: 100px;
+    height: 130px;
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selecionarModelo1,
+.selecionarModelo2,
+.selecionarModelo3,
+.selecionarGola1,
+.selecionarGola2,
+.selecionarGola3,
+.selecionarTecido1,
+.selecionarTecido2,
+.selecionarTecido3 {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 8.3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #C4C4C4;
+    border-radius: 50%;
+}
+
+.img {
+    width: 50%;
+    height: 784px;
+    background-color: #404EED;
+    background-image: url("arquivos/ilustração.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.finalizarPedido {
+    display: flex;
+    flex-direction: column;
+
+}
+
+input {
+    margin-top: 9.3px;
+    margin-bottom: 23.8px;
+    Width: 396.27px;
+    Height: 40px;
+    padding-left: 18px;
+    box-sizing: border-box;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    border: none;
+    outline: 0;
+    
+}
+
+input::placeholder{
+    color: #818181;
+    font-size: 14px;
+    
+}
+
+.ConfirmarPedidoCinza{
+    Width:398.61px;
+    Height:40px;
+    border-radius: 10px;
+    background-color:#C4C4C4;
+    color:#FCFCFC;
+    border: none;
+    outline: 0;
+}
+.ConfirmarPedidoAzul{
+    Width:398.61px;
+    Height:40px;
+    border-radius: 10px;
+    background-color: #404EED;
+    color: #FCFCFC;
+    border: none;
+    outline: 0;
+}
+
+.esconder{
+    display: none;
+}
+
+.ultimosPedidos {
+    width: 100%;
+    height: 342px;
+    background-color: #F2F2F2;
+}
