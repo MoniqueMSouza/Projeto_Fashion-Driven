@@ -28,20 +28,22 @@
                     <div class="textosFazerPedido">Escolha o modelo</div>
                     <div class="modelo">
                         <div class="modelo1">
-                            <div class="selecionarModelo1">
+                            <div onclick="SelecionarModelo (this)" class="selecionarModelo1">
                                 <img src="arquivos/tshirt.png">
                             </div>
                             <div class="textosFazerPedido">T-shirt</div>
+                            
+
                         </div>
                         <div class="modelo2">
-                            <div class="selecionarModelo2">
+                            <div onclick="SelecionarModelo (this)" class="selecionarModelo2">
                                 <img src="arquivos/Camiseta.png">
                             </div>
                             <div class="textosFazerPedido">Camiseta</div>
                         </div>
-                        
+
                         <div class="modelo3">
-                            <div class="selecionarModelo3">
+                            <div onclick="SelecionarModelo (this)" class="selecionarModelo3">
                                 <img src="arquivos/Mangalonga.png">
                             </div>
                             <div class="textosFazerPedido">Manga longa</div>
@@ -51,19 +53,19 @@
                     <div class="textosFazerPedido">Escolha a gola</div>
                     <div class="gola">
                         <div class="gola1">
-                            <div class="selecionarGola1">
+                            <div onclick="SelecionarGola (this)" class="selecionarGola1">
                                 <img src="arquivos/GolaV.png">
                             </div>
                             <div class="textosFazerPedido">Gola V</div>
                         </div>
                         <div class="gola2">
-                            <div class="selecionarGola2">
+                            <div onclick="SelecionarGola (this)" class="selecionarGola2">
                                 <img src="arquivos/GolaRedonda.png">
                             </div>
                             <div class="textosFazerPedido">Gola Redonda</div>
                         </div>
                         <div class="gola3">
-                            <div class="selecionarGola3">
+                            <div onclick="SelecionarGola (this)" class="selecionarGola3">
                                 <img src="arquivos/GolaPolo.png">
                             </div>
                             <div class="textosFazerPedido">Gola polo</div>
@@ -73,40 +75,46 @@
                     <div class="textosFazerPedido">Escolha o tecido</div>
                     <div class="tecido">
                         <div class="tecido1">
-                            <div class="selecionarTecido1">
+                            <div onclick="SelecionarTecido (this)" class="selecionarTecido1 ">
                                 <img src="arquivos/Seda.png">
                             </div>
                             <div class="textosFazerPedido">Seda</div>
                         </div>
                         <div class="tecido2">
-                            <div class="selecionarTecido2">
+                            <div onclick="SelecionarTecido (this)" class="selecionarTecido2">
                                 <img src="arquivos/Algodão.png">
                             </div>
                             <div class="textosFazerPedido">Algodão</div>
                         </div>
                         <div class="tecido3">
-                            <div class="selecionarTecido3">
+                            <div onclick="SelecionarTecido (this)" class="selecionarTecido3">
                                 <img src="arquivos/Poliester.png">
                             </div>
                             <div class="textosFazerPedido">Poliéster</div>
                         </div>
                     </div>
                 </div>
-<div class="finalizarPedido">
-                <div class="textosFazerPedido">Imagem de referência</div>
-                <input type="text" placeholder="Insira o link">
-                <button class="ConfirmarPedidoCinza">Confirmar Pedido</button>
-                <button class="ConfirmarPedidoAzul esconder">Confirmar Pedido</button>
-            </div>
+                <div class="finalizarPedido">
+                    <div class="textosFazerPedido">Imagem de referência</div>
+                    <input onclick="PreencherInput()" type="url" placeholder="Insira o link">
+                    <button class="ConfirmarPedidoCinza">Confirmar Pedido</button>
+                    <button onclick="EncomendarBlusa()" class="ConfirmarPedidoAzul esconder">Confirmar Pedido</button>
+                </div>
             </div>
             <div class="img"></div>
         </div>
 
-        <div class="ultimosPedidos"></div>
+        <div class="ultimosPedidos">
+
+
+
+
+        </div>
 
 
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
 </body>
 
