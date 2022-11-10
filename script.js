@@ -4,6 +4,7 @@ let golaEscolhida
 let tecidoEscolhido
 let urlInserido;
 let pedidos = {}
+let camisetas = {}
 
 PerguntarNome();
 BuscarPedidos();
@@ -219,20 +220,23 @@ function BuscarPedidos() {
     const promessa = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts');
     promessa.then((resposta) => RenderizarPedidos(resposta.data));
 }
-let resposta ={}
+
 function RenderizarPedidos(resposta) {
-    console.log(resposta);
+    //console.log(resposta);
+    camisetas = resposta;
+    //console.log(camisetas);
+    
 
     const ListaPedidos = document.querySelector('.ultimosPedidos')
-    //ListaPedidos = ""
-
+    ListaPedidos.innerHTML = ""
+    
     for (let i = 0; i < resposta.length; i++) {
         
 
         ListaPedidos.innerHTML +=
             `
             
-        <div class="Pedido" onclick="EncomendarBlusaClicada()">  
+        <div id="${resposta[i].id}" class="Pedido" onclick="EncomendarBlusaClicada(this)">  
     <img src="${resposta[i].image}"  class="imgPedidos">
     <span class="textoPedido">Criador: ${resposta[i].owner}
     </span>          
@@ -241,14 +245,43 @@ function RenderizarPedidos(resposta) {
 `
 
     }
-    resposta = resposta;
-console.log(resposta)
-}
-
+    }
 
 //Ao clicar em uma blusa na lista "últimos pedidos" deve aparecer um confirm() e caso o usuário aceite. Deve fazer uma encomenda com os dados da blusa clicada. 
 function EncomendarBlusaClicada(resposta) {
-console.log(resposta)
-    confirm('Você gostaria de realizar um pedido com as caracteristicas da blusa selecionada?');
+
+    // const pedidoSelecionadoAntes = document.querySelector('.Pedido');
+    // if (pedidoSelecionadoAntes !== null) {
+    //     pedidoSelecionadoAntes.classList.remove('pedidoSelecionado');
+    // }
+
+    // resposta.classList.toggle('pedidoSelecionado');
+
+  let idBlusa = Number(resposta.id)
+  //console.log(idBlusa)
+  let [objCamiseta] = camisetas.filter(camiseta => camiseta.id === idBlusa)
+console.log(objCamiseta)
+
+if(confirm('Você gostaria de realizar um pedido com as caracteristicas da blusa selecionada?')){
+
+    delete objCamiseta.id 
+    console.log(objCamiseta);
+
+    dados = {
+        "model": `${objCamiseta.model}`,
+        "neck": `${objCamiseta.neck}`,
+        "material": `${objCamiseta.material}`,
+        "image": `${objCamiseta.image}`, 
+        "owner": `${NomeUsuario}`,
+        "author": `${NomeUsuario}`,
+    }
+
+    const promessa = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts',dados);
+    promessa.then(BuscarPedidos);
+    //premessa.catch(DeuErro);
+}
+    
+
+    
 
 }
