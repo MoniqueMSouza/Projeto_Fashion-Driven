@@ -2,6 +2,7 @@ let NomeUsuario
 let modeloEscolhido
 let golaEscolhida
 let tecidoEscolhido
+let urlInserido;
 let pedidos = {}
 
 PerguntarNome();
@@ -12,7 +13,7 @@ BuscarPedidos();
 
 function PerguntarNome() {
     NomeUsuario = prompt('Qual o seu nome?')
-    console.log(NomeUsuario)
+    //console.log(NomeUsuario)
 }
 
 
@@ -43,7 +44,7 @@ function SelecionarModelo(select) {
 
     }
 
-    console.log(modeloEscolhido)
+    //console.log(modeloEscolhido)
     habilitabotao();
 
 }
@@ -78,7 +79,7 @@ function SelecionarGola(select) {
     }
 
 
-    console.log(golaEscolhida)
+    //console.log(golaEscolhida)
     habilitabotao();
 
 }
@@ -99,72 +100,87 @@ function SelecionarTecido(select) {
 
     //Definir material para o pedido
     if (Tecido1.classList.contains("bordaAzul")) {
-        tecidoEscolhido = "v-neck"
+        tecidoEscolhido = "silk"
     }
 
     else if (Tecido2.classList.contains("bordaAzul")) {
-        tecidoEscolhido = "round"
+        tecidoEscolhido = "cotton"
     }
 
     else if (Tecido3.classList.contains("bordaAzul")) {
-        tecidoEscolhido = "polo"
+        tecidoEscolhido = "polyester"
     }
 
 
-    console.log(tecidoEscolhido)
+    //console.log(tecidoEscolhido)
     habilitabotao();
 
 }
 
 //O usuário deve preencher obrigatoriamente um campo de texto para colocar um link para uma imagem de referencia. 
-let urlInserido;
-
-// function PreencherInput() {
-//     let input = document.querySelector("#urlInput");
-//     urlInserido = input.value;
-
-// }
+function PreencherInput() {
+    let input = document.querySelector("#urlInput");
+    urlInserido = input.value;
+    habilitabotao();
+    //console.log(urlInserido)
+}
 
 
 //Somente após preencher todas as informações acima o botão "confirmar" deve ficar clicável.
 function habilitabotao() {
-    // let input = document.querySelector("#urlInput");
-    // urlInserido = input.value;
-
+    //  let input = document.querySelector("#urlInput");
+    //  urlInserido = input.value;
+    //console.log(urlInserido)
 
     //Se o modelo foi selecionado for diferente de nada
-    if (modeloEscolhido !== undefined) {
+    if (modeloEscolhido !== undefined && golaEscolhida !== undefined && tecidoEscolhido !== undefined && urlInserido !== undefined) {
 
-        // Se a gola foi selecionada for diferente de nada
-        if (golaEscolhida !== undefined) {
+        // // Se a gola foi selecionada for diferente de nada
+        // if (golaEscolhida !== undefined) {
 
-            // Se o tecido foi selecionado for diferente de nada
-            if (tecidoEscolhido !== undefined) {
+        //     // Se o tecido foi selecionado for diferente de nada
+        //     if (tecidoEscolhido !== undefined) {
 
-                // Se o link inserido for diferente de nada
-                //if (urlInserido !== null) {
+        //         // Se o link inserido for diferente de nada
+        //         if (urlInserido !== "") {
 
 
 
-                //Botao cinza some
-                const ocultarcinza = document.querySelector('.ConfirmarPedidoCinza');
-                ocultarcinza.classList.add('esconder')
+        //Botao cinza some
+        const ocultarcinza = document.querySelector('.ConfirmarPedidoCinza');
+        ocultarcinza.classList.add('esconder')
 
-                //Botao azul aparece
-                const exibirazul = document.querySelector('.ConfirmarPedidoAzul');
-                exibirazul.classList.remove('esconder')
-            }
-        }
+        //Botao azul aparece
+        const exibirazul = document.querySelector('.ConfirmarPedidoAzul');
+        exibirazul.classList.remove('esconder')
     }
 }
+//}
+//}
 //}
 
 
 
 
-function MontarPedido() {
+// function MontarPedido() {
 
-        pedidos = {
+//         pedidos = {
+//         "model": `${modeloEscolhido}`,
+//         "neck": `${golaEscolhida}`,
+//         "material": `${tecidoEscolhido}`,
+//         "image": `${urlInserido}`,
+//         "owner": `${NomeUsuario}`,
+//         "author": `${NomeUsuario}`,
+//     }
+// console.log(pedidos)
+// }
+
+
+function EncomendarBlusa() {
+    let input = document.querySelector("#urlInput");
+    urlInserido = input.value;
+
+    pedidos = {
         "model": `${modeloEscolhido}`,
         "neck": `${golaEscolhida}`,
         "material": `${tecidoEscolhido}`,
@@ -172,11 +188,7 @@ function MontarPedido() {
         "owner": `${NomeUsuario}`,
         "author": `${NomeUsuario}`,
     }
-console.log(pedidos)
-}
-
-//Encomendar Blusa
-function EncomendarBlusa() {
+    //console.log(pedidos)
     const requisição = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', pedidos);
 
     requisição.then(EncomendaFeita);
@@ -207,12 +219,16 @@ function BuscarPedidos() {
     const promessa = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts');
     promessa.then((resposta) => RenderizarPedidos(resposta.data));
 }
-
+let resposta ={}
 function RenderizarPedidos(resposta) {
-    console.log(resposta)
-    for (let i = 0; i < resposta.length; i++) {
+    console.log(resposta);
 
-        const ListaPedidos = document.querySelector('.ultimosPedidos')
+    const ListaPedidos = document.querySelector('.ultimosPedidos')
+    //ListaPedidos = ""
+
+    for (let i = 0; i < resposta.length; i++) {
+        
+
         ListaPedidos.innerHTML +=
             `
             
@@ -223,12 +239,16 @@ function RenderizarPedidos(resposta) {
         </div>    
     
 `
-    }
 
+    }
+    resposta = resposta;
+console.log(resposta)
 }
 
 
 //Ao clicar em uma blusa na lista "últimos pedidos" deve aparecer um confirm() e caso o usuário aceite. Deve fazer uma encomenda com os dados da blusa clicada. 
-function EncomendarBlusaClicada(pedido) {
+function EncomendarBlusaClicada(resposta) {
+console.log(resposta)
     confirm('Você gostaria de realizar um pedido com as caracteristicas da blusa selecionada?');
+
 }
