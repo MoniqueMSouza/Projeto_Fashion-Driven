@@ -25,9 +25,27 @@ function SelecionarModelo(select) {
 
     select.classList.toggle('bordaAzul');
 
-    //modeloEscolhido = select.innerHTML
+    modeloEscolhido = ""
+    let Modelo1 = document.querySelector(".selecionarModelo1");
+    let Modelo2 = document.querySelector(".selecionarModelo2");
+    let Modelo3 = document.querySelector(".selecionarModelo3");
+
+    if (Modelo1.classList.contains("bordaAzul")) {
+        modeloEscolhido = "t-shirt"
+    }
+
+    else if (Modelo2.classList.contains("bordaAzul")) {
+        modeloEscolhido = "top-tank"
+    }
+
+    else if (Modelo3.classList.contains("bordaAzul")) {
+        modeloEscolhido = "long"
+
+    }
+
+    console.log(modeloEscolhido)
     habilitabotao();
-    //console.log(modeloEscolhido);
+
 }
 
 
@@ -41,9 +59,28 @@ function SelecionarGola(select) {
 
     select.classList.toggle('bordaAzul');
 
-    //golaEscolhida = select.innerHTML;
-    habilitabotao();
+    golaEscolhida = ""
+    let Gola1 = document.querySelector(".selecionarGola1");
+    let Gola2 = document.querySelector(".selecionarGola2");
+    let Gola3 = document.querySelector(".selecionarGola3");
+
+    //Definir Gola para o pedido
+    if (Gola1.classList.contains("bordaAzul")) {
+        golaEscolhida = "v-neck"
+    }
+
+    else if (Gola2.classList.contains("bordaAzul")) {
+        golaEscolhida = "round"
+    }
+
+    else if (Gola3.classList.contains("bordaAzul")) {
+        golaEscolhida = "polo"
+    }
+
+
     console.log(golaEscolhida)
+    habilitabotao();
+
 }
 
 //O usuário deve selecionar obrigatoriamente e somente 1 tipo de tecido 
@@ -55,9 +92,28 @@ function SelecionarTecido(select) {
 
     select.classList.toggle('bordaAzul');
 
-    tecidoEscolhido = select.innerHTML;
-    habilitabotao();
+    tecidoEscolhido = ""
+    let Tecido1 = document.querySelector(".selecionarTecido1");
+    let Tecido2 = document.querySelector(".selecionarTecido2");
+    let Tecido3 = document.querySelector(".selecionarTecido3");
+
+    //Definir material para o pedido
+    if (Tecido1.classList.contains("bordaAzul")) {
+        tecidoEscolhido = "v-neck"
+    }
+
+    else if (Tecido2.classList.contains("bordaAzul")) {
+        tecidoEscolhido = "round"
+    }
+
+    else if (Tecido3.classList.contains("bordaAzul")) {
+        tecidoEscolhido = "polo"
+    }
+
+
     console.log(tecidoEscolhido)
+    habilitabotao();
+
 }
 
 //O usuário deve preencher obrigatoriamente um campo de texto para colocar um link para uma imagem de referencia. 
@@ -72,8 +128,8 @@ let urlInserido;
 
 //Somente após preencher todas as informações acima o botão "confirmar" deve ficar clicável.
 function habilitabotao() {
-   // let input = document.querySelector("#urlInput");
-   // urlInserido = input.value;
+    // let input = document.querySelector("#urlInput");
+    // urlInserido = input.value;
 
 
     //Se o modelo foi selecionado for diferente de nada
@@ -87,82 +143,28 @@ function habilitabotao() {
 
                 // Se o link inserido for diferente de nada
                 //if (urlInserido !== null) {
-console.log(urlInserido)
 
 
-                    //Botao cinza some
-                    const ocultarcinza = document.querySelector('.ConfirmarPedidoCinza');
-                    ocultarcinza.classList.add('esconder')
 
-                    //Botao azul aparece
-                    const exibirazul = document.querySelector('.ConfirmarPedidoAzul');
-                    exibirazul.classList.remove('esconder')
-                }
+                //Botao cinza some
+                const ocultarcinza = document.querySelector('.ConfirmarPedidoCinza');
+                ocultarcinza.classList.add('esconder')
+
+                //Botao azul aparece
+                const exibirazul = document.querySelector('.ConfirmarPedidoAzul');
+                exibirazul.classList.remove('esconder')
             }
         }
     }
+}
 //}
 
 
 
 
 function MontarPedido() {
-    let Modelo1 = document.querySelector("selecionarModelo1");
-    let Modelo2 = document.querySelector("selecionarModelo2");
-    let Modelo3 = document.querySelector("selecionarModelo3");
 
-    let Gola1 = document.querySelector("selecionarGola1");
-    let Gola2 = document.querySelector("selecionarGola2");
-    let Gola3 = document.querySelector("selecionarGola3");
-
-    let Tecido1 = document.querySelector("selecionarTecido1");
-    let Tecido2 = document.querySelector("sselecionarTecido2");
-    let Tecido3 = document.querySelector("selecionarTecido3");
-
-
-    //Definir Modelo para o pedido
-    if (selecionarModelo1.classList.contains("bordaAzul")) {
-        modeloEscolhido = "t-shirt"
-
-        if (selecionarModelo2.classList.contains("bordaAzul")) {
-            modeloEscolhido = "top-tank"
-
-            if (selecionarModelo3.classList.contains("bordaAzul")) {
-                modeloEscolhido = "long"
-            }
-        }
-    }
-    console.log(modeloEscolhido)
-
-
-    //Definir Gola para o pedido
-    if (selecionarGola1.classList.contains("bordaAzul")) {
-        golaEscolhida = "v-neck"
-
-        if (selecionarGola2.classList.contains("bordaAzul")) {
-            golaEscolhida = "round"
-
-            if (selecionarGola3.classList.contains("bordaAzul")) {
-                golaEscolhida = "polo"
-            }
-        }
-    }
-    console.log(golaEscolhida)
-
-    //Definir material para o pedido
-    if (selecionarTecido1.classList.contains("bordaAzul")) {
-        tecidoEscolhido = "v-neck"
-
-        if (selecionarTecido2.classList.contains("bordaAzul")) {
-            tecidoEscolhido = "round"
-
-            if (selecionarTecido3.classList.contains("bordaAzul")) {
-                tecidoEscolhido = "polo"
-            }
-        }
-    }
-
-    pedidos = {
+        pedidos = {
         "model": `${modeloEscolhido}`,
         "neck": `${golaEscolhida}`,
         "material": `${tecidoEscolhido}`,
@@ -170,7 +172,7 @@ function MontarPedido() {
         "owner": `${NomeUsuario}`,
         "author": `${NomeUsuario}`,
     }
-
+console.log(pedidos)
 }
 
 //Encomendar Blusa
